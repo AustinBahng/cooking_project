@@ -1,0 +1,102 @@
+.preview-list {
+  position: relative;
+}
+.preview-title {
+  color: $secondary-color;
+  font-size: 30px;
+  height: 40px;
+  margin: 0;
+}
+.recipe-preview {
+  display: inline-block;
+  width: 250px;
+  vertical-align: text-top;
+}
+.recipe-preview .img-wrapper {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+  border-radius: 10px;
+  width: 100%;
+  height: 200px;
+  border: 1px solid darken($primary-color, 20%);
+}
+.recipe-preview .img-wrapper img {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+.recipe-preview:hover {
+  cursor: pointer;
+
+  .img-wrapper img {
+    transform: scale(1.25);
+    -ms-transform: scale(1.25); /* IE 9 */
+    -moz-transform: scale(1.25); /* Firefox */
+    -webkit-transform: scale(1.25); /* Safari and Chrome */
+    -o-transform: scale(1.25); /* Opera */
+  }
+  .img-wrapper {
+    border: 2px solid $secondary-color;
+  }
+  .recipe-label {
+    color: $secondary-color;
+  }
+}
+
+.recipe-preview .recipe-label {
+  width: 100%;
+  overflow-wrap: break-word;
+  padding-left: 7.5px;
+  white-space: normal;
+  font-size: 18px;
+}
+
+.horizontal-scroll {
+  margin: 10px 0px 10px 0px;
+  overflow: hidden;
+  white-space: nowrap;
+  @media screen and (max-width: $break-tablet) {
+    overflow: scroll;
+  }
+}
+.horizontal-scroll::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.scroll-button {
+  display: none;
+  z-index: 1;
+  position: absolute;
+  top: 1px;
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: none;
+  width: 30px;
+  height: 200px;
+  i {
+    color: $white;
+    transform: scale(0.75, 1.125);
+  }
+}
+.scroll-button:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.scroll-button:active,
+.scroll-button:focus {
+  outline: 0;
+  border: none;
+}
+.scroll-left {
+  left: 0;
+}
+.scroll-right {
+  right: 0;
+}

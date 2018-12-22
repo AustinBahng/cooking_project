@@ -1,0 +1,22 @@
+{
+  "name": "cooking_project",
+  "version": "1.0.0",
+  "description": "Cooking recipe website",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w scss/ -o dist/css/ --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AustinBahng/cooking_project.git"
+  },
+  "author": "Austin Bahng",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/AustinBahng/cooking_project/issues"
+  },
+  "homepage": "https://github.com/AustinBahng/cooking_project#readme",
+  "dependencies": {
+    "node-sass": "^4.11.0"
+  }
+}

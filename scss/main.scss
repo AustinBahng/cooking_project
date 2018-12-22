@@ -1,0 +1,33 @@
+@import "config";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $light-gray;
+}
+#content {
+  position: absolute;
+  top: 36px;
+  left: 0;
+  padding: 10px 62px;
+  background-color: $light-gray;
+}
+.row {
+  background-color: $light-gray;
+}
+.column {
+  background-color: $white;
+  margin-bottom: 15px;
+  padding: 5px 15px 15px 15px;
+  border-radius: 4px;
+}
+h1,
+h4 {
+  color: $secondary-color;
+}
+
+@import "navbar";
+@import "preview";
+@import "recipe";
+@import "rating";

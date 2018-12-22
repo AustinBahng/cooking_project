@@ -1,0 +1,72 @@
+#recipe-header {
+  height: 300px;
+  position: relative;
+  margin-bottom: 15px;
+  background-color: $white;
+  border-radius: 4px;
+}
+#recipe-header .column {
+  margin-bottom: 0;
+}
+#author {
+  display: inline-block;
+  margin-top: -10px;
+  margin-left: 2px;
+  font-style: italic;
+  padding-right: 10px;
+}
+#rating-wrapper {
+  display: inline-block;
+}
+#recipe-info-wrapper {
+  margin: 7.5px 0;
+  background-color: orange;
+  height: 85px;
+}
+#recipe-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 0;
+}
+#recipe-image {
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: 500px;
+}
+.table th {
+  color: $secondary-color;
+}
+#buttons {
+  position: absolute;
+  bottom: 15px;
+}
+.btn {
+  color: $white;
+  font-size: 18px;
+}
+#add-button {
+  background-color: $primary-color;
+  border-color: $primary-color;
+}
+#edit-button {
+  background-color: $green;
+  border-color: $green;
+}
+#delete-button {
+  background-color: $secondary-color;
+  border-color: $secondary-color;
+}
+.table-striped thead {
+  background-color: #fffafa;
+}
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+  background-color: #f5fffa;
+}
+.table-striped > tbody > tr:nth-child(even) > td,
+.table-striped > tbody > tr:nth-child(even) > th {
+  background-color: #d1f2ff;
+}
