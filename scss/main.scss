@@ -32,6 +32,9 @@ h1,
 h4 {
   color: $secondary-color;
   font-family: "Cinzel", serif;
+  @media screen and (max-width: $break-phone) {
+    font-size: 31px;
+  }
 }
 
 @import "navbar";
@@ -40,6 +43,7 @@ h4 {
 @import "rating";
 @import "fridge";
 @import "cookbook";
+@import "search";
 
 footer {
   width: 100%;

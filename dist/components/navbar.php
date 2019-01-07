@@ -26,7 +26,7 @@
                 <a href="cookbook.php" class="nav-link"><i class="fas fa-book"></i>Cookbook</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link"><i class="fas fa-search"></i>Search</a>
+                <a href="search.php" class="nav-link"><i class="fas fa-search"></i>Search</a>
             </li>
         </ul>
     </div>

@@ -1,0 +1,58 @@
+#search-results {
+  display: none;
+  .recipe-preview {
+    margin: 0 15px 15px 15px;
+    @media screen and (max-width: $break-phone) {
+      width: 100%;
+      padding-bottom: 15px;
+      margin: 0;
+    }
+  }
+}
+
+#search-form {
+  padding: 15px 0;
+  h3 {
+    font-size: 20px;
+    padding-top: 10px;
+  }
+  form {
+    margin-top: -20px;
+    input[type="text"] {
+      float: left;
+      padding: 6px;
+      font-size: 17px;
+      width: calc(80% - 2px);
+      height: 50px;
+      border: 1px solid #cdc9c9;
+    }
+    button {
+      width: 20%;
+      height: 50px;
+      padding: 6px 10px;
+      padding: 0;
+      background: #ddd;
+      font-size: 17px;
+      border: none;
+      cursor: pointer;
+      background-color: #cdc9c9;
+    }
+  }
+}
+#fridge-search-options {
+  padding: 5px 20px;
+  background-color: white;
+  border: 1px solid #cdc9c9;
+  .form-check {
+    padding: 4px 10px;
+  }
+  .form-check-input {
+    margin: 0;
+    margin-top: 2.4px;
+    width: 20px;
+    height: 20px;
+  }
+  .form-check-label {
+    padding-left: 25px;
+  }
+}
