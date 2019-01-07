@@ -10,7 +10,7 @@
   #logo {
     margin-left: 2.5px;
     margin-right: auto;
-    width: 200px;
+    width: 150px;
     height: 100%;
     background-color: $white;
     color: $secondary-color;
@@ -39,16 +39,29 @@
   }
   #links {
     position: absolute;
-    top: 36px;
-    left: -250px;
+    top: 0;
+    left: -220px;
     display: none;
     height: 100vh;
     background-color: $light-beige;
     border-right: 2px solid $secondary-color;
-    li {
-      width: 200px;
+    #dropdown-header {
+      text-align: center;
+      font-size: 30px;
+      padding: 5px 0 0 0;
+      height: 60px;
+      &:hover {
+        cursor: pointer;
+      }
     }
-    li:hover,
+    hr {
+      margin: 10px 0;
+      border-color: lighten($secondary-color, 35%);
+    }
+    li {
+      width: 220px;
+      background-color: $light-beige;
+    }
     a:hover {
       background-color: lighten($dark-gray, 30%);
     }
@@ -60,15 +73,21 @@
       padding-left: 16px;
       background-color: $light-beige;
       color: black;
+      i {
+        color: black;
+        padding-left: 5px;
+        padding-right: 15px;
+      }
     }
   }
   @media screen and (max-width: $break-tablet) {
-    #links {
-      top: 0;
-    }
     #logo {
       margin-left: auto;
       margin-right: auto;
     }
   }
+}
+
+#nav-placeholder {
+  height: 36px;
 }

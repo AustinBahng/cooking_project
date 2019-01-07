@@ -1,0 +1,34 @@
+#add-recipe .img-wrapper {
+  background-color: #ff1493;
+}
+#add-recipe .img-wrapper i {
+  color: #ffaad6;
+  text-align: center;
+  margin: 0;
+  padding: 20px 0 20px 0;
+  width: 100%;
+}
+.cookbook {
+  .recipe-preview {
+    width: calc(100% / 4 - 20px);
+  }
+  @media screen and (max-width: $break-tablet) {
+    .recipe-preview {
+      width: calc(100% / 3 - 20px);
+    }
+  }
+  @media screen and (max-width: $break-phone) {
+    h1 {
+      font-size: 35px;
+    }
+    .recipe-preview {
+      width: calc(100% / 2 - 20px);
+      padding-bottom: 15px;
+    }
+  }
+  @media screen and (max-width: 475px) {
+    .recipe-preview {
+      width: calc(100%);
+    }
+  }
+}

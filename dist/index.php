@@ -29,7 +29,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Cooking</title>
+    <title>Cookbook</title>
   </head>
   <body>
     <?php require "components/navbar.php"; ?>
@@ -52,7 +52,8 @@
               <button class="scroll-button scroll-right"><i class="fas fa-chevron-right fa-2x"></i></button>
             </div>  <!-- end of featured recipes -->
         </div>
-
+      </div>
+      <div class="row">
         <div class="col-12 column">
           <h1 class="preview-title">Featured Recipes</h1>
             <div id="popular-recipes" class="preview-list">
@@ -70,10 +71,10 @@
               <button class="scroll-button scroll-right"><i class="fas fa-chevron-right fa-2x"></i></button>
             </div>  <!-- end of featured recipes -->
         </div>
-
-      </div> <!-- end of row -->
+      </div>
     </div> <!-- end of content -->
   </body>
+  <?php require "components/footer.php"; ?>
   <script>
     bindScrollButtons('#featured-recipes');
     bindScrollButtons('#popular-recipes');
