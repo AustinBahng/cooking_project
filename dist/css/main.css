@@ -36,7 +36,7 @@ h4 {
       font-size: 31px; } }
 
 #navbar {
-  z-index: 999;
+  z-index: 10;
   position: fixed;
   top: 0;
   width: 100%;
@@ -57,7 +57,6 @@ h4 {
   #navbar i {
     color: #fffafa; }
   #navbar #links,
-  #navbar ul,
   #navbar li {
     height: 36px;
     background-color: #00bfff; }
@@ -90,7 +89,8 @@ h4 {
       border-color: #ffc7e5; }
     #navbar #links li {
       width: 220px;
-      background-color: #fff5ee; }
+      background-color: #fff5ee;
+      cursor: pointer; }
     #navbar #links a:hover {
       background-color: #b6b6b6; }
     #navbar #links li:active,
@@ -111,6 +111,42 @@ h4 {
 
 #nav-placeholder {
   height: 36px; }
+
+#login-signup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  z-index: 11; }
+  #login-signup .form-group label {
+    color: #ff1493;
+    font-weight: bold; }
+  #login-signup .btn {
+    background-color: #32cd32;
+    border-color: #32cd32;
+    color: #fffafa;
+    width: 125px;
+    font-size: 18px; }
+  #login-signup .form {
+    width: 320px;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 4px;
+    background-color: #fffafa; }
+  #login-signup #login-form #signup-button {
+    background-color: #ff1493;
+    border-color: #ff1493;
+    float: right; }
+  #login-signup #signup-form {
+    display: none;
+    margin-top: 50px; }
+    #login-signup #signup-form #signup-back-button {
+      background-color: #ff1493;
+      border-color: #ff1493;
+      float: right; }
 
 .preview-list {
   position: relative; }

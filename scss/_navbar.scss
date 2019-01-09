@@ -1,5 +1,5 @@
 #navbar {
-  z-index: 999;
+  z-index: 10;
   position: fixed;
   top: 0;
   width: 100%;
@@ -22,7 +22,6 @@
     color: $white;
   }
   #links,
-  ul,
   li {
     height: 36px;
     background-color: $primary-color;
@@ -61,6 +60,7 @@
     li {
       width: 220px;
       background-color: $light-beige;
+      cursor: pointer;
     }
     a:hover {
       background-color: lighten($dark-gray, 30%);
@@ -90,4 +90,50 @@
 
 #nav-placeholder {
   height: 36px;
+}
+
+#login-signup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+  .form-group label {
+    color: $secondary-color;
+    font-weight: bold;
+  }
+
+  .btn {
+    background-color: $green;
+    border-color: $green;
+    color: $white;
+    width: 125px;
+    font-size: 18px;
+  }
+  .form {
+    width: 320px;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 4px;
+    background-color: $white;
+  }
+  #login-form {
+    #signup-button {
+      background-color: $secondary-color;
+      border-color: $secondary-color;
+      float: right;
+    }
+  }
+  #signup-form {
+    display: none;
+    margin-top: 50px;
+    #signup-back-button {
+      background-color: $secondary-color;
+      border-color: $secondary-color;
+      float: right;
+    }
+  }
 }
