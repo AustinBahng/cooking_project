@@ -1,28 +1,26 @@
 <?php
-    require "config/config.php";
-    // if($_SESSION["logged_in"]){
-        $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-        if($mysqli->errno){
-            echo $mysqli->error;
-            exit();
-        }
-        $mysqli->set_charset('utf8');
-        // get random recipes to be featured
-        $sql = "SELECT recipe_id,name,image_url FROM recipes ORDER BY RAND() LIMIT 10;";
-        $featured_results = $mysqli->query($sql);
-        if(!$featured_results){
-            echo $mysqli->error;
-            exit();
-        }
-        // get popular recipes
-        $sql = "SELECT recipe_id,name,image_url FROM recipes ORDER BY RAND() LIMIT 10;";
-        $popular_results = $mysqli->query($sql);
-        if(!$featured_results){
-            echo $mysqli->error;
-            exit();
-        }
-        $mysqli->close();
-    // }
+  require "components/navbar.php";
+  $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+  if($mysqli->errno){
+    echo $mysqli->error;
+    exit();
+  }
+  $mysqli->set_charset('utf8');
+  // get random recipes to be featured
+  $sql = "SELECT recipe_id,name,image_url FROM recipes ORDER BY RAND() LIMIT 10;";
+  $featured_results = $mysqli->query($sql);
+  if(!$featured_results){
+    echo $mysqli->error;
+    exit();
+  }
+  // get popular recipes
+  $sql = "SELECT recipe_id,name,image_url FROM recipes ORDER BY RAND() LIMIT 10;";
+  $popular_results = $mysqli->query($sql);
+  if(!$featured_results){
+    echo $mysqli->error;
+    exit();
+  }
+  $mysqli->close();
 ?>
 <html lang="en">
   <head>
@@ -32,7 +30,7 @@
     <title>Cookbook</title>
   </head>
   <body>
-    <?php require "components/navbar.php"; ?>
+    <?php // require "components/navbar.php"; ?>
     <div class="container-fluid" id="content">
       <div class="row">
         <div class="col-12 column">

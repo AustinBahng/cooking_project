@@ -1,7 +1,6 @@
 <?php
-  require "config/config.php";
-  // if($_SESSION["logged_in"]){
-    $_SESSION["user_id"] = 1;
+  require "components/navbar.php";
+  if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]){
     $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
     if($mysqli->errno){
       echo $mysqli->error;
@@ -18,7 +17,7 @@
       exit();
     }
     $mysqli->close();
-  // }
+  }
 ?>
 <html>
 <head>
@@ -29,8 +28,8 @@
   <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
 </head>
 <body>
-  <?php require "components/navbar.php"; ?>
   <div class="container-fluid" id="content">
+    <?php if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]){ ?>
     <div class="row">
       <div class="col-12 column">
         <h1>My Fridge</h1>
@@ -71,6 +70,9 @@
         </div>
       </div>
     </div> <!-- end of row -->
+    <?php } else{
+      require "components/login-notice.html";
+    } ?>
   </div> <!-- end of container -->
 </body>
 <?php require "components/footer.php"; ?>

@@ -1,3 +1,6 @@
+<?php
+  require "config/config.php";
+?>  
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
@@ -32,7 +35,12 @@
     <hr>
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a onclick="showLogin()" class="nav-link"><i class="fas fa-sign-in-alt"></i>Log In</a>
+        <?php 
+          if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]){ ?>
+          <a onclick="logout()" class="nav-link"><i class="fas fa-sign-in-alt fa-flip-horizontal"></i>Log Out</a>
+        <?php } else{ ?>
+          <a onclick="showLogin()" class="nav-link"><i class="fas fa-sign-in-alt"></i>Log In</a>
+        <?php } ?>
       </li>
     </ul>
   </div>
@@ -53,7 +61,7 @@
         <input type="password" class="form-control" id="login-password" name="password" placeholder="Password">
         <div id="password-error" class="error-msg"></div>
       </div>
-      <button type="button" class="btn btn-primary">Log In</button>
+      <button type="button" id="login-submit" class="btn btn-primary">Log In</button>
       <button type="button" id="signup-button" class="btn btn-primary">Sign Up</button>
     </form>
   </div>
@@ -137,5 +145,36 @@
   });
   $('#dropdown-header').click(function() {
     hide();
-  })
+  });
+  $('#login-submit').click(function() {
+    let url = 'lib/login.php';
+    let postRequest = $.post(url, {
+        email: $('#login-email').val(),
+        password: $('#login-password').val()
+    }); 
+
+    postRequest.done(function(error) {
+      if(error){
+        console.log(error);
+      } else {
+        location.reload();
+      }
+    });
+  });
+  $('#login-form :input').keyup(function(e) {
+    if(e.keyCode === 13){
+      $('#login-submit').click();
+    }
+  });
+  $('#signup-form :input').keyup(function(e) {
+    if(e.keyCode === 13){
+      // $('#signup-submit').click();
+      console.log('sign up');
+    }
+  });
+  function logout() {
+    if(confirm('Are you sure you want log out?')){
+      window.location.href = 'lib/logout.php'
+    }
+  }
 </script>

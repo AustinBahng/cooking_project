@@ -1,6 +1,5 @@
 <?php
-  require "config/config.php";
-  // if($_SESSION["logged_in"]){
+  require "components/navbar.php";
     $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
     if($mysqli->errno){
       echo $mysqli->error;
@@ -18,7 +17,6 @@
       exit();
     }
     $mysqli->close();
-  // }
 ?>
 <!doctype html>
 <html>
@@ -29,7 +27,6 @@
     <title>Search</title>
   </head>
   <body>
-    <?php require 'components/navbar.php'; ?>
     <div class="container-fluid" id="content">
       <div class="row">
         <div class="col-12 column">

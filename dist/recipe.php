@@ -1,5 +1,5 @@
 <?php
-    require "config/config.php";
+  require "components/navbar.php";
     // if($_SESSION["logged_in"]){
         $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
         if($mysqli->errno){
@@ -43,8 +43,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />      
     </head>
-    <body>
-        <?php require 'components/navbar.php'; ?>     
+    <body>  
         <div id="content" class="container-fluid">
             <div class="row" id="recipe-header">
                 <div class="column col-12 col-lg-9 " >
