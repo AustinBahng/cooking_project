@@ -139,13 +139,19 @@ h4 {
     border-color: #32cd32;
     color: #fffafa;
     width: 125px;
-    font-size: 18px; }
+    font-size: 18px;
+    margin-top: 5px; }
   #login-signup .form {
     width: 320px;
     margin: 100px auto;
     padding: 20px;
     border-radius: 4px;
     background-color: #fffafa; }
+  #login-signup .error-msg {
+    color: red;
+    font-size: 11px;
+    padding-top: 3px;
+    margin-bottom: -10px; }
   #login-signup #login-form #signup-button {
     background-color: #ff1493;
     border-color: #ff1493;

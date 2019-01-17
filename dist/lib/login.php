@@ -29,10 +29,10 @@
           $_SESSION["user_id"] = $row["user_id"];
           exit();
         } else {
-          $error = "Invalid email and password combination";
+          $error = "2";
         }
       } else {
-        $error = "Invalid email and password combination";
+        $error = "1";
       }
     }
   }

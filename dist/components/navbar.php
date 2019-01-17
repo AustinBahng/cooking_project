@@ -50,7 +50,6 @@
 <div id="login-signup">
   <div id="login-form" class="form">
     <form>
-      <div class="error-msg"></div>
       <div class="form-group">
         <label for="login-email">Email Address</label>
         <input type="email" class="form-control" id="login-email" name="email" placeholder="Email address">
@@ -93,88 +92,10 @@
         <input type="password" class="form-control" id="confirm-password" placeholder="Confirm Password">
         <div id="confirm-password-error" class="error-msg"></div>
       </div>
-      <button type="button" class="btn btn-primary">Sign Up</button>
+      <button type="button" id="signup-submit" class="btn btn-primary">Sign Up</button>
       <button type="button" id="signup-back-button" class="btn btn-primary">Back</button>
     </form>
   </div>
 </div>
-<script>
-  $('#login-signup').click(function(e) {
-    if(e.target === this){
-      $(this).hide();
-    }
-  });
-  $('#signup-button').click(function() {
-    $('#login-form').toggle();
-    $('#signup-form').toggle();
-  });
-  $('#signup-back-button').click(function() {
-    $('#signup-form').toggle();
-    $('#login-form').toggle();
-  })
-  function showLogin(){
-    hide();
-    $('#signup-form').hide();
-    $('#login-form').show();
-    $('#login-signup').show();
-  }
-  function show(){
-    $('#links').show();
-    $('#links').animate({
-      left: 0
-    });
-    $('#overlay').show();
-  }
-  function hide(){
-    $('#links').animate({
-      left: -220
-    }, function() {
-      $('#links').hide();
-    });
-    $('#overlay').hide();
-  }
-  function dropdown() {
-    if($('#links').is(':hidden')){
-      show();
-    } else {
-      hide();
-    }
-  }
-  $('#overlay').click(function() {
-    hide();
-  });
-  $('#dropdown-header').click(function() {
-    hide();
-  });
-  $('#login-submit').click(function() {
-    let url = 'lib/login.php';
-    let postRequest = $.post(url, {
-        email: $('#login-email').val(),
-        password: $('#login-password').val()
-    }); 
-
-    postRequest.done(function(error) {
-      if(error){
-        console.log(error);
-      } else {
-        location.reload();
-      }
-    });
-  });
-  $('#login-form :input').keyup(function(e) {
-    if(e.keyCode === 13){
-      $('#login-submit').click();
-    }
-  });
-  $('#signup-form :input').keyup(function(e) {
-    if(e.keyCode === 13){
-      // $('#signup-submit').click();
-      console.log('sign up');
-    }
-  });
-  function logout() {
-    if(confirm('Are you sure you want log out?')){
-      window.location.href = 'lib/logout.php'
-    }
-  }
-</script>
+<script src="js/navbar.js"></script>
+<script src="js/auth.js"></script>
