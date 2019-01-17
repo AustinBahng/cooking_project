@@ -86,7 +86,25 @@ $("#login-submit").click(function() {
 });
 
 $("#signup-submit").click(function() {
-  console.log("click");
+  if (!validateSignup()) {
+    return;
+  }
+  let url = "lib/signup.php";
+  let postRequest = $.post(url, {
+    name: $("#fname").val() + " " + $("#lname").val(),
+    email: $("#signup-email").val(),
+    password: $("#signup-password").val()
+  });
+
+  postRequest.done(function(error) {
+    $("#signup-form .error-msg").html("");
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("signed up");
+      location.reload();
+    }
+  });
 });
 function logout() {
   if (confirm("Are you sure you want log out?")) {
