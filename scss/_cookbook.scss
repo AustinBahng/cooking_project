@@ -1,7 +1,7 @@
-#add-recipe .img-wrapper {
+#create-recipe .img-wrapper {
   background-color: #ff1493;
 }
-#add-recipe .img-wrapper i {
+#create-recipe .img-wrapper i {
   color: #ffaad6;
   text-align: center;
   margin: 0;
@@ -33,6 +33,7 @@
   }
 }
 #create_recipe_wrapper {
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -42,8 +43,14 @@
   height: 100%;
   #create_recipe_overlay {
     overflow-y: scroll;
-    width: 320px;
-    height: 500px;
+    width: 700px;
+    height: 70%;
+    @media screen and (max-width: $break-tablet) {
+      width: 500px;
+    }
+    @media screen and (max-width: $break-phone) {
+      width: 320;
+    }
     margin: 50px auto;
     border-radius: 4px;
     background-color: $white;
@@ -65,7 +72,13 @@
       border-radius: 4px;
       position: fixed;
       background-color: $white;
-      width: 310px;
+      width: 700px;
+      @media screen and (max-width: $break-tablet) {
+        width: 500px;
+      }
+      @media screen and (max-width: $break-phone) {
+        width: 320;
+      }
       padding: 10px 20px 5px 20px;
       h1 {
         font-size: 28px;
@@ -73,7 +86,7 @@
       border-bottom: 1px solid $light-gray;
     }
     form {
-      padding: 60px 20px 20px 20px;
+      padding: 70px 20px 20px 20px;
     }
     .form-group label {
       color: #ff1493;
@@ -95,6 +108,10 @@
       color: #fffafa;
       width: 100%;
       font-size: 25px;
+    }
+
+    #add-quantity {
+      width: 100%;
     }
   }
 }

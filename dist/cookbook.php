@@ -31,7 +31,7 @@
         <div id="create_recipe_title">
           <h1>Create Recipe</h1>
         </div>
-        <form id="signup-form" method="POST">
+        <form id="create-recipe-form">
           <div class="error-msg" id="error"></div>
           <div class="form-group">
             <label for="name">Recipe Name </label>
@@ -42,6 +42,11 @@
             <label for="url">Image URL</label>
             <input type="text" class="form-control" id="url" placeholder="Image URL">
             <div id="url-error" class="error-msg"></div>
+          </div>
+          <div class="form-group">
+            <label for="cooking-time">Cooking Time</label>
+            <input type="text" class="form-control" id="cooking-time" placeholder="Serving size">
+            <div id="cooking-time-error" class="error-msg"></div>
           </div>
           <div class="form-group">
             <label for="serving-size">Serving Size</label>
@@ -86,7 +91,7 @@
               </tr>
             </tfoot>
           </table>
-          <button type="submit" class="btn btn-primary">Create</button>
+          <button id="create-recipe-submit-button" class="btn btn-primary">Create</button>
         </form>
       </div>
     </div>
@@ -96,9 +101,9 @@
       <div class="row">
         <div class="col-12 column">
           <h1>My Cookbook</h1>
-          <div class="recipe-preview" id="add-recipe">
+          <div class="recipe-preview" id="create-recipe">
             <div class="img-wrapper"><i class="fas fa-plus fa-10x"></i></div>
-            <div class="recipe-label">Add Recipe</div>
+            <div class="recipe-label">Create Recipe</div>
           </div>
           <?php while($row = $results->fetch_assoc()) : ?>
             <div class="recipe-preview" value="<?php echo $row["recipe_id"]; ?>">

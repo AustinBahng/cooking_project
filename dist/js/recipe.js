@@ -20,7 +20,7 @@ $("#rating-button").click(function() {
 $("#add-button").click(function() {
   let url = new URL(window.location.href);
   let recipe_id = url.searchParams.get("recipe_id");
-  url = "add_to_cookbook.php";
+  url = "lib/add_to_cookbook.php";
   let postRequest = $.post(url, {
     recipe_id: recipe_id
   });
@@ -29,7 +29,6 @@ $("#add-button").click(function() {
     if (error == " ") {
       console.log(error);
     } else {
-      console.log("added");
       alert("Added To My Cookbook");
     }
   });
@@ -44,5 +43,14 @@ $("#edit-button").click(function() {
 $("#delete-button").click(function() {
   let url = new URL(window.location.href);
   let recipe_id = url.searchParams.get("recipe_id");
-  location.href = "delete_recipe.php?recipe_id=" + recipe_id;
+  location.href = "lib/delete_recipe.php?recipe_id=" + recipe_id;
+  let getRequest = $.get(url);
+  getRequest.done(function(error) {
+    if (error == " ") {
+      console.log(error);
+    } else {
+      alert("Deleted recipe");
+      location.href = "index.php";
+    }
+  });
 });

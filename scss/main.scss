@@ -46,7 +46,12 @@ h4 {
   color: $white;
   font-size: 25px;
 }
-
+.error-msg {
+  color: red;
+  font-size: 11px;
+  padding-top: 3px;
+  margin-bottom: -10px;
+}
 @import "navbar";
 @import "preview";
 @import "recipe";

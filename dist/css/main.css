@@ -45,6 +45,12 @@ h4 {
   color: #fffafa;
   font-size: 25px; }
 
+.error-msg {
+  color: red;
+  font-size: 11px;
+  padding-top: 3px;
+  margin-bottom: -10px; }
+
 #navbar {
   z-index: 10;
   position: fixed;
@@ -147,11 +153,6 @@ h4 {
     padding: 20px;
     border-radius: 4px;
     background-color: #fffafa; }
-  #login-signup .error-msg {
-    color: red;
-    font-size: 11px;
-    padding-top: 3px;
-    margin-bottom: -10px; }
   #login-signup #login-form #signup-button {
     background-color: #ff1493;
     border-color: #ff1493;
@@ -406,10 +407,15 @@ h4 {
 #add-item-button {
   background-color: #00bfff; }
 
-#add-recipe .img-wrapper {
+.table i {
+  float: right;
+  font-size: 25px;
+  color: #cdc9c9; }
+
+#create-recipe .img-wrapper {
   background-color: #ff1493; }
 
-#add-recipe .img-wrapper i {
+#create-recipe .img-wrapper i {
   color: #ffaad6;
   text-align: center;
   margin: 0;
@@ -435,6 +441,7 @@ h4 {
     width: calc(100%); } }
 
 #create_recipe_wrapper {
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -444,11 +451,17 @@ h4 {
   height: 100%; }
   #create_recipe_wrapper #create_recipe_overlay {
     overflow-y: scroll;
-    width: 320px;
-    height: 500px;
+    width: 700px;
+    height: 70%;
     margin: 50px auto;
     border-radius: 4px;
     background-color: #fffafa; }
+    @media screen and (max-width: 991.5px) {
+      #create_recipe_wrapper #create_recipe_overlay {
+        width: 500px; } }
+    @media screen and (max-width: 767.5px) {
+      #create_recipe_wrapper #create_recipe_overlay {
+        width: 320; } }
     #create_recipe_wrapper #create_recipe_overlay::-webkit-scrollbar {
       width: 10px; }
     #create_recipe_wrapper #create_recipe_overlay::-webkit-scrollbar-track {
@@ -463,13 +476,19 @@ h4 {
       border-radius: 4px;
       position: fixed;
       background-color: #fffafa;
-      width: 310px;
+      width: 700px;
       padding: 10px 20px 5px 20px;
       border-bottom: 1px solid #eee9e9; }
+      @media screen and (max-width: 991.5px) {
+        #create_recipe_wrapper #create_recipe_overlay #create_recipe_title {
+          width: 500px; } }
+      @media screen and (max-width: 767.5px) {
+        #create_recipe_wrapper #create_recipe_overlay #create_recipe_title {
+          width: 320; } }
       #create_recipe_wrapper #create_recipe_overlay #create_recipe_title h1 {
         font-size: 28px; }
     #create_recipe_wrapper #create_recipe_overlay form {
-      padding: 60px 20px 20px 20px; }
+      padding: 70px 20px 20px 20px; }
     #create_recipe_wrapper #create_recipe_overlay .form-group label {
       color: #ff1493;
       font-weight: bold; }
@@ -484,6 +503,8 @@ h4 {
       color: #fffafa;
       width: 100%;
       font-size: 25px; }
+    #create_recipe_wrapper #create_recipe_overlay #add-quantity {
+      width: 100%; }
 
 #search-results {
   display: none; }
