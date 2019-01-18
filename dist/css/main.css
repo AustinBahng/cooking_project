@@ -470,6 +470,20 @@ h4 {
         font-size: 28px; }
     #create_recipe_wrapper #create_recipe_overlay form {
       padding: 60px 20px 20px 20px; }
+    #create_recipe_wrapper #create_recipe_overlay .form-group label {
+      color: #ff1493;
+      font-weight: bold; }
+    #create_recipe_wrapper #create_recipe_overlay .table thead {
+      color: #ff1493; }
+    #create_recipe_wrapper #create_recipe_overlay .add-button {
+      background-color: #ff1493;
+      color: #fffafa; }
+    #create_recipe_wrapper #create_recipe_overlay .btn-primary {
+      background-color: #00bfff;
+      border-color: #00bfff;
+      color: #fffafa;
+      width: 100%;
+      font-size: 25px; }
 
 #search-results {
   display: none; }

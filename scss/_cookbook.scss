@@ -75,5 +75,26 @@
     form {
       padding: 60px 20px 20px 20px;
     }
+    .form-group label {
+      color: #ff1493;
+      font-weight: bold;
+    }
+
+    .table thead {
+      color: #ff1493;
+    }
+
+    .add-button {
+      background-color: #ff1493;
+      color: #fffafa;
+    }
+
+    .btn-primary {
+      background-color: #00bfff;
+      border-color: #00bfff;
+      color: #fffafa;
+      width: 100%;
+      font-size: 25px;
+    }
   }
 }
