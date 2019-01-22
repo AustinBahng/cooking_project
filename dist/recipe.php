@@ -6,7 +6,7 @@
     exit();
   }
   $mysqli->set_charset('utf8');
-  $sql = "SELECT name,image_url,serving_size FROM recipes " .
+  $sql = "SELECT name,image_url,serving_size,owner,time FROM recipes " .
           "WHERE recipes.recipe_id=" . $_GET["recipe_id"] . ";";
   $results = $mysqli->query($sql);
   if(!$results){
@@ -31,21 +31,40 @@
     echo $mysqli->error;
     exit();
   }
+  // get name of owner
+  $sql = "SELECT name FROM users WHERE user_id=" . $row["owner"] . ";";
+  $temp_results = $mysqli->query($sql);
+  if(!$temp_results){
+    echo $mysqli->error;
+    exit();
+  }
+  $temp_row = $temp_results->fetch_assoc();
+  $owner_name = $temp_row["name"];
+  // get number of upvotes
+  $sql = "SELECT COUNT(DISTINCT user_id,recipe_id) as upvotes FROM user_upvotes " .
+          "WHERE recipe_id=" . $_GET["recipe_id"] . ";";
+  $temp_results = $mysqli->query($sql);
+  if(!$temp_results){
+    echo $mysqli->error;
+    exit();
+  }
+  $temp_row = $temp_results->fetch_assoc();
+  $num_upvotes = $temp_row["upvotes"];
   // check if logged in user is owner and if recipe is in cookbook
-  $owner = true;
+  $owner = false;
   $in_cookbook = false;
   if($_SESSION["logged_in"]){
-    // $sql = "SELECT owner FROM recipes WHERE recipe_id=" . $_GET["recipe_id"] . ";";
-    // $temp_results = $mysqli->query($sql);
-    // if(!$temp_results){
-    //   echo $mysqli->error;
-    //   exit();
-    // }
-    // $temp_row = $temp_results->fetch_assoc();
-    // if($temp_row["owner"] == $_SESSION["user_id"]){
-    //   $owner = true;
-    //   $in_cookbook = true;
-    // } else {
+    $sql = "SELECT owner FROM recipes WHERE recipe_id=" . $_GET["recipe_id"] . ";";
+    $temp_results = $mysqli->query($sql);
+    if(!$temp_results){
+      echo $mysqli->error;
+      exit();
+    }
+    $temp_row = $temp_results->fetch_assoc();
+    if($temp_row["owner"] == $_SESSION["user_id"]){
+      $owner = true;
+      $in_cookbook = true;
+    } else {
       $sql = "SELECT * FROM user_recipes " .
               "WHERE recipe_id=" . $_GET["recipe_id"] . 
               " AND user_id=" . $_SESSION["user_id"] . ";";
@@ -58,7 +77,17 @@
       if($temp_row){
         $in_cookbook = true;
       }
-
+    }
+    // check if logged in user has liked recipe
+    $sql = "SELECT * FROM user_upvotes WHERE user_id=" . $_SESSION["user_id"] . 
+            " AND recipe_id=" . $_GET["recipe_id"] . ";";
+    $temp_results = $mysqli->query($sql);
+    if(!$temp_results){
+      echo $mysqli->error;
+      exit();
+    }
+    $temp_row = $temp_results->fetch_assoc();
+    $has_upvoted = ($temp_results->num_rows > 0) ? true : false;
   }
   $mysqli->close();
 ?>
@@ -90,7 +119,7 @@
           </div>
           <div class="form-group">
             <label for="cooking-time">Cooking Time</label>
-            <input type="text" class="form-control" id="edit-cooking-time" placeholder="Cooking time">
+            <input type="text" class="form-control" id="edit-cooking-time" placeholder="Cooking time" value="<?php echo $row["time"]; ?>">
             <div id="cooking-time-error" class="error-msg"></div>
           </div>
           <div class="form-group">
@@ -169,17 +198,30 @@
         <div class="column col-12 col-lg-9 " >
           <h1><?php echo $row["name"]; ?></h1>
           <div id="author-button-wrapper">
-            <div id="author">By Austin Bahng</div>
+            <div id="author">By <?php echo $owner_name; ?></div>
             <div class="rating-wrapper">
               <i class="fas fa-thumbs-up rating-icon"></i>
-              <span class="rating-number">2,534</span>
+              <span class="rating-number"><?php echo $num_upvotes; ?></span>
             </div>
+            <?php 
+              if($_SESSION["logged_in"]){ 
+                if($has_upvoted){
+
+            ?>
+              <button id="rating-button" class="upvoted">Unlike</button>
+            <?php
+                } else {
+            ?>
             <button id="rating-button">Like</button>
+            <?php 
+                }
+              } 
+            ?>
           </div>
           <div id="recipe-info-wrapper">
             <div id="time" class="recipe-info">
               <span class="header">Time</span>
-              <span class="value">30 Minutes</span>
+              <span class="value"><?php echo $row["time"]; ?></span>
             </div>
             <div id="yield" class="recipe-info">
               <span class="header">Yield</span>

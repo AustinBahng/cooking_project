@@ -1,6 +1,6 @@
 <?php
   require "components/navbar.php";
-  if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]){
+  if($_SESSION["logged_in"]){
     $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
     if($mysqli->errno){
       echo $mysqli->error;

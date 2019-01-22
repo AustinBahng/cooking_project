@@ -55,6 +55,7 @@ $("#create-recipe-submit-button").click(function(e) {
     postRequest.done(function(error) {
       if (error != " ") {
         console.log(error);
+        $("#error").html(error);
       } else {
         window.location.href = "cookbook.php";
       }
