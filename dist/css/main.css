@@ -51,6 +51,9 @@ h4 {
   padding-top: 3px;
   margin-bottom: -10px; }
 
+.fa-times-circle {
+  cursor: pointer; }
+
 #navbar {
   z-index: 10;
   position: fixed;
@@ -353,6 +356,10 @@ h4 {
 #add-button {
   background-color: #00bfff;
   border-color: #00bfff; }
+  #add-button:disabled {
+    background-color: #d1f2ff;
+    border-color: #d1f2ff;
+    color: #8a8585; }
 
 #edit-button {
   background-color: #32cd32;
@@ -440,7 +447,7 @@ h4 {
   .cookbook .recipe-preview {
     width: calc(100%); } }
 
-#create_recipe_wrapper {
+.overlay-wrapper {
   display: none;
   position: fixed;
   top: 0;
@@ -449,62 +456,65 @@ h4 {
   background-color: rgba(0, 0, 0, 0.6);
   width: 100%;
   height: 100%; }
-  #create_recipe_wrapper #create_recipe_overlay {
+  .overlay-wrapper .popup-wrapper {
     overflow-y: scroll;
-    width: 700px;
+    width: 900px;
     height: 70%;
     margin: 50px auto;
     border-radius: 4px;
     background-color: #fffafa; }
     @media screen and (max-width: 991.5px) {
-      #create_recipe_wrapper #create_recipe_overlay {
-        width: 500px; } }
+      .overlay-wrapper .popup-wrapper {
+        width: 700px; } }
     @media screen and (max-width: 767.5px) {
-      #create_recipe_wrapper #create_recipe_overlay {
-        width: 320; } }
-    #create_recipe_wrapper #create_recipe_overlay::-webkit-scrollbar {
+      .overlay-wrapper .popup-wrapper {
+        width: 95%; } }
+    .overlay-wrapper .popup-wrapper::-webkit-scrollbar {
       width: 10px; }
-    #create_recipe_wrapper #create_recipe_overlay::-webkit-scrollbar-track {
+    .overlay-wrapper .popup-wrapper::-webkit-scrollbar-track {
       background: #fffafa;
       border-radius: 4px; }
-    #create_recipe_wrapper #create_recipe_overlay::-webkit-scrollbar-thumb {
+    .overlay-wrapper .popup-wrapper::-webkit-scrollbar-thumb {
       background: #8a8585;
       border-radius: 4px; }
-    #create_recipe_wrapper #create_recipe_overlay::-webkit-scrollbar-thumb:hover {
+    .overlay-wrapper .popup-wrapper::-webkit-scrollbar-thumb:hover {
       background: #696969; }
-    #create_recipe_wrapper #create_recipe_overlay #create_recipe_title {
+    .overlay-wrapper .popup-wrapper .popup-title {
       border-radius: 4px;
       position: fixed;
       background-color: #fffafa;
-      width: 700px;
+      width: 900px;
       padding: 10px 20px 5px 20px;
       border-bottom: 1px solid #eee9e9; }
       @media screen and (max-width: 991.5px) {
-        #create_recipe_wrapper #create_recipe_overlay #create_recipe_title {
-          width: 500px; } }
+        .overlay-wrapper .popup-wrapper .popup-title {
+          width: 700px; } }
       @media screen and (max-width: 767.5px) {
-        #create_recipe_wrapper #create_recipe_overlay #create_recipe_title {
-          width: 320; } }
-      #create_recipe_wrapper #create_recipe_overlay #create_recipe_title h1 {
+        .overlay-wrapper .popup-wrapper .popup-title {
+          width: 95%; } }
+      .overlay-wrapper .popup-wrapper .popup-title h1 {
         font-size: 28px; }
-    #create_recipe_wrapper #create_recipe_overlay form {
+    .overlay-wrapper .popup-wrapper form {
       padding: 70px 20px 20px 20px; }
-    #create_recipe_wrapper #create_recipe_overlay .form-group label {
+    .overlay-wrapper .popup-wrapper .form-group label {
       color: #ff1493;
       font-weight: bold; }
-    #create_recipe_wrapper #create_recipe_overlay .table thead {
+    .overlay-wrapper .popup-wrapper .table thead {
       color: #ff1493; }
-    #create_recipe_wrapper #create_recipe_overlay .add-button {
+    .overlay-wrapper .popup-wrapper .add-button {
       background-color: #ff1493;
       color: #fffafa; }
-    #create_recipe_wrapper #create_recipe_overlay .btn-primary {
+    .overlay-wrapper .popup-wrapper .btn-primary {
       background-color: #00bfff;
       border-color: #00bfff;
       color: #fffafa;
       width: 100%;
       font-size: 25px; }
-    #create_recipe_wrapper #create_recipe_overlay #add-quantity {
+    .overlay-wrapper .popup-wrapper #add-quantity {
       width: 100%; }
+    .overlay-wrapper .popup-wrapper #edit-preparations tbody .preparation div {
+      width: calc(100% - 50px);
+      float: left; }
 
 #search-results {
   display: none; }

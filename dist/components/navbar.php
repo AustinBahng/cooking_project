@@ -36,7 +36,7 @@
     <ul class="navbar-nav">
       <li class="nav-item">
         <?php 
-          if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]){ ?>
+          if($_SESSION["logged_in"]){ ?>
           <a onclick="logout()" class="nav-link"><i class="fas fa-sign-in-alt fa-flip-horizontal"></i>Log Out</a>
         <?php } else{ ?>
           <a onclick="showLogin()" class="nav-link"><i class="fas fa-sign-in-alt"></i>Log In</a>

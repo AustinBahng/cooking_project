@@ -52,6 +52,9 @@ h4 {
   padding-top: 3px;
   margin-bottom: -10px;
 }
+.fa-times-circle {
+  cursor: pointer;
+}
 @import "navbar";
 @import "preview";
 @import "recipe";

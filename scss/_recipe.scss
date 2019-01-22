@@ -91,12 +91,9 @@
   color: $secondary-color;
 }
 #buttons {
-  //   position: absolute;
-  //   bottom: 15px;
   display: inline-block;
 }
 .btn {
-  //   margin-left: -5px;
   color: $white;
   font-size: 16px;
   padding: 0 5px;
@@ -106,6 +103,11 @@
 #add-button {
   background-color: $primary-color;
   border-color: $primary-color;
+  &:disabled {
+    background-color: $light-blue;
+    border-color: $light-blue;
+    color: $gray;
+  }
 }
 #edit-button {
   background-color: $green;

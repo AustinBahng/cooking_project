@@ -7,7 +7,7 @@
       exit();
     }
     $mysqli->set_charset('utf8');
-    $sql = "SELECT recipes.recipe_id,name,image_url FROM user_recipes " .
+    $sql = "SELECT DISTINCT recipes.recipe_id,name,image_url FROM user_recipes " .
             "INNER JOIN recipes USING(recipe_id) " .
             "WHERE user_recipes.user_id=" . $_SESSION["user_id"] . ";";
     $results = $mysqli->query($sql);
@@ -26,15 +26,15 @@
     <title>My Cookbook</title>
   </head>
   <body>
-    <div id="create_recipe_wrapper">
-      <div id="create_recipe_overlay">
-        <div id="create_recipe_title">
+    <div id="create_recipe_wrapper" class="overlay-wrapper">
+      <div id="create_recipe_overlay" class="popup-wrapper">
+        <div id="create_recipe_title" class="popup-title">
           <h1>Create Recipe</h1>
         </div>
         <form id="create-recipe-form">
           <div class="error-msg" id="error"></div>
           <div class="form-group">
-            <label for="name">Recipe Name </label>
+            <label for="name">Recipe Name</label>
             <input type="text" class="form-control" id="name" placeholder="Recipe name">
             <div id="name-error" class="error-msg"></div>
           </div>
@@ -45,7 +45,7 @@
           </div>
           <div class="form-group">
             <label for="cooking-time">Cooking Time</label>
-            <input type="text" class="form-control" id="cooking-time" placeholder="Serving size">
+            <input type="text" class="form-control" id="cooking-time" placeholder="Cooking time">
             <div id="cooking-time-error" class="error-msg"></div>
           </div>
           <div class="form-group">

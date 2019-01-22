@@ -1,5 +1,5 @@
 <?php
-  require "config/config.php";
+  require "../config/config.php";
   if(isset($_POST["recipe_id"]) && !empty($_POST["recipe_id"])){
     $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
     if($mysqli->errno){

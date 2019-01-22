@@ -1,14 +1,16 @@
 $(".recipe-preview").click(function() {
   if ($(this).attr("id") === "create-recipe") {
     $("#create_recipe_wrapper").show();
+    $("html").css({ overflow: "hidden" });
   } else {
     location.href = "recipe.php?recipe_id=" + $(this).attr("value");
   }
 });
 
-$("#create_recipe_wrapper").click(function(e) {
+$(".overlay-wrapper").click(function(e) {
   if (e.target === this) {
-    $("#create_recipe_wrapper").hide();
+    $(".overlay-wrapper").hide();
+    $("html").css({ overflow: "auto" });
   }
 });
 
@@ -58,6 +60,12 @@ $("#create-recipe-submit-button").click(function(e) {
       }
     });
   }
+});
+
+$(".fas").click(function() {
+  $(this)
+    .closest("tr")
+    .remove();
 });
 
 $("#add-ingredient-button").click(function() {
