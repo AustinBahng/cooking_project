@@ -64,15 +64,35 @@ h4 {
   height: 36px;
   border-bottom: 1px solid #696969; }
   #navbar #logo {
+    padding: 0;
     margin-left: 2.5px;
-    margin-right: auto;
-    width: 150px;
-    height: 100%;
-    background-color: #fffafa;
-    color: #ff1493;
-    text-align: center;
-    font-size: 30px;
-    line-height: 12px; }
+    margin-right: auto; }
+  #navbar .logo {
+    width: 152px;
+    height: 30px; }
+  #navbar #icons {
+    position: fixed;
+    top: 0;
+    right: 16px;
+    height: 35px; }
+    #navbar #icons ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0; }
+    #navbar #icons li {
+      float: left;
+      height: 34.5px; }
+    #navbar #icons a {
+      display: block;
+      height: 35px;
+      padding: 0 15px; }
+      #navbar #icons a i {
+        padding-top: 9px; }
+      #navbar #icons a:hover {
+        background-color: #ff1493; }
+    @media screen and (max-width: 991.5px) {
+      #navbar #icons {
+        display: none; } }
   #navbar i {
     color: #fffafa; }
   #navbar #links,
@@ -98,11 +118,24 @@ h4 {
     border-right: 2px solid #ff1493; }
     #navbar #links #dropdown-header {
       text-align: center;
-      font-size: 30px;
-      padding: 5px 0 0 0;
+      padding: 15px 0 0 0;
       height: 60px; }
+      #navbar #links #dropdown-header .logo {
+        width: 190px;
+        height: 37.5px; }
       #navbar #links #dropdown-header:hover {
         cursor: pointer; }
+    #navbar #links #logged-in-user {
+      padding-left: 22px; }
+      #navbar #links #logged-in-user i {
+        color: #ff1493;
+        margin-right: 15px; }
+      #navbar #links #logged-in-user #user-name {
+        font-weight: bold;
+        color: #ff1493; }
+    #navbar #links #logout-link i {
+      padding-right: 5px;
+      padding-left: 15px; }
     #navbar #links hr {
       margin: 10px 0;
       border-color: #ffc7e5; }
@@ -402,15 +435,6 @@ h4 {
 #add-quantity-row {
   width: 25%; }
 
-#add-quantity {
-  width: calc(50% - 5px);
-  margin-right: 5px;
-  float: left; }
-
-#add-unit {
-  width: calc(50% - 5px);
-  margin-left: 5px; }
-
 #add-item-button {
   background-color: #00bfff; }
 
@@ -539,22 +563,28 @@ h4 {
       font-size: 17px;
       width: calc(80% - 2px);
       height: 50px;
-      border: 1px solid #cdc9c9; }
+      border: 1px solid #cdc9c9;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px; }
     #search-form form button {
       width: 20%;
       height: 50px;
       padding: 6px 10px;
       padding: 0;
-      background: #ddd;
       font-size: 17px;
       border: none;
       cursor: pointer;
-      background-color: #cdc9c9; }
+      background-color: #00bfff;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px; }
+      #search-form form button i {
+        color: #fffafa; }
 
 #fridge-search-options {
   padding: 5px 20px;
   background-color: white;
-  border: 1px solid #cdc9c9; }
+  border: 1px solid #cdc9c9;
+  border-radius: 4px; }
   #fridge-search-options .form-check {
     padding: 4px 10px; }
   #fridge-search-options .form-check-input {

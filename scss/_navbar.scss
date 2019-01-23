@@ -8,15 +8,42 @@
   height: 36px;
   border-bottom: 1px solid $dark-gray;
   #logo {
+    padding: 0;
     margin-left: 2.5px;
     margin-right: auto;
-    width: 150px;
-    height: 100%;
-    background-color: $white;
-    color: $secondary-color;
-    text-align: center;
-    font-size: 30px;
-    line-height: 12px;
+  }
+  .logo {
+    width: 152px;
+    height: 30px;
+  }
+  #icons {
+    position: fixed;
+    top: 0;
+    right: 16px;
+    height: 35px;
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      float: left;
+      height: 34.5px;
+    }
+    a {
+      display: block;
+      height: 35px;
+      padding: 0 15px;
+      i {
+        padding-top: 9px;
+      }
+      &:hover {
+        background-color: $secondary-color;
+      }
+    }
+    @media screen and (max-width: $break-tablet) {
+      display: none;
+    }
   }
   i {
     color: $white;
@@ -46,11 +73,31 @@
     border-right: 2px solid $secondary-color;
     #dropdown-header {
       text-align: center;
-      font-size: 30px;
-      padding: 5px 0 0 0;
+      padding: 15px 0 0 0;
       height: 60px;
+      .logo {
+        width: 190px;
+        height: 37.5px;
+      }
       &:hover {
         cursor: pointer;
+      }
+    }
+    #logged-in-user {
+      padding-left: 22px;
+      i {
+        color: $secondary-color;
+        margin-right: 15px;
+      }
+      #user-name {
+        font-weight: bold;
+        color: $secondary-color;
+      }
+    }
+    #logout-link {
+      i {
+        padding-right: 5px;
+        padding-left: 15px;
       }
     }
     hr {

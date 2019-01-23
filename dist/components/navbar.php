@@ -13,11 +13,48 @@
   <button class="navbar-toggler" onclick="dropdown()">
     <i class="fas fa-bars"></i>
   </button>
-  <a class="navbar-brand" id="logo" href="#">Cookbook</a>
+  <a class="navbar-brand" id="logo" href="#"><img class="logo" src="img/logo.png" /></a>
+  <div id="icons">
+    <ul>
+      <li>
+        <a href="index.php"><i class="fas fa-home"></i></a>
+      </li>
+      <li>
+        <a href="fridge.php"><i class="fas fa-utensils"></i></a>
+      </li>
+      <li>
+        <a href="cookbook.php"><i class="fas fa-book"></i></a>
+      </li>
+      <li>
+        <a href="search.php"><i class="fas fa-search"></i></a>
+      </li>
+    </ul>
+  </div>
   <div id="overlay"></div>
   <div id="links">
-    <div id="dropdown-header">Cookbook</div>
+    <div id="dropdown-header"><img class="logo" src="img/logo.png" /></div>
     <hr>
+    <?php 
+      if($_SESSION["logged_in"]){ 
+        // get user name
+        $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+        if($mysqli->errno){
+          echo $mysqli->error;
+          exit();
+        }
+        $mysqli->set_charset('utf8');
+        $sql = "SELECT name FROM users " .
+          "WHERE user_id=" . $_SESSION["user_id"] . ";";
+        $results = $mysqli->query($sql);
+        if(!$results){
+          echo $mysqli->error;
+          exit();
+        }
+        $row = $results->fetch_assoc();
+    ?>
+      <div id="logged-in-user"><i class="fas fa-user"></i><span id="user-name"><?php echo $row["name"]; ?></span></div>
+      <hr>
+    <?php } ?>
     <ul class="navbar-nav">
       <li class="nav-item">
         <a href="index.php" class="nav-link"><i class="fas fa-home"></i>Home</a>
@@ -37,7 +74,7 @@
       <li class="nav-item">
         <?php 
           if($_SESSION["logged_in"]){ ?>
-          <a onclick="logout()" class="nav-link"><i class="fas fa-sign-in-alt fa-flip-horizontal"></i>Log Out</a>
+          <a onclick="logout()" class="nav-link" id="logout-link"><i class="fas fa-sign-in-alt fa-flip-horizontal"></i>Log Out</a>
         <?php } else{ ?>
           <a onclick="showLogin()" class="nav-link"><i class="fas fa-sign-in-alt"></i>Log In</a>
         <?php } ?>

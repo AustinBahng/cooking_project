@@ -1,11 +1,11 @@
 <?php
   require "components/navbar.php";
+  if($_SESSION["logged_in"]){
     $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
     if($mysqli->errno){
       echo $mysqli->error;
       exit();
     }
-    $_SESSION["user_id"] = 1;
     $mysqli->set_charset('utf8');
     $sql = "SELECT users_fridge.ingredient_id,ingredients.name,quantity,expiring FROM users_fridge " .
             "INNER JOIN ingredients USING(ingredient_id)" .
@@ -17,6 +17,7 @@
       exit();
     }
     $mysqli->close();
+  }
 ?>
 <!doctype html>
 <html>
@@ -34,7 +35,7 @@
             <h1>Search Recipes</h1>
             <div id="search-form">
               <form>
-                <input type="text" placeholder="Search recipes..." name="reciple-search" id="search-terms">
+                <input type="text" placeholder="Enter search terms..." name="reciple-search" id="search-terms">
                 <button id="search-button"><i class="fa fa-search"></i></button>
                 <h3>Select items from my fridge</h3>
                 <div id="fridge-search-options" class="container-fluid">
