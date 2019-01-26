@@ -14,12 +14,12 @@
     exit();
   }
   // get popular recipes
-  $sql = "SELECT recipe_id,name,image_url FROM recipes ORDER BY RAND() LIMIT 10;";
-  $popular_results = $mysqli->query($sql);
-  if(!$featured_results){
-    echo $mysqli->error;
-    exit();
-  }
+  // $sql = "SELECT recipe_id,name,image_url FROM recipes ORDER BY RAND() LIMIT 10;";
+  // $popular_results = $mysqli->query($sql);
+  // if(!$featured_results){
+  //   echo $mysqli->error;
+  //   exit();
+  // }
   $mysqli->close();
 ?>
 <html lang="en">
@@ -51,31 +51,11 @@
             </div>  <!-- end of featured recipes -->
         </div>
       </div>
-      <div class="row">
-        <div class="col-12 column">
-          <h1 class="preview-title">Featured Recipes</h1>
-            <div id="popular-recipes" class="preview-list">
-              <button class="scroll-button scroll-left"><i class="fas fa-chevron-left fa-2x"></i></button>
-              <div class="horizontal-scroll">
-                <?php while($row = $popular_results->fetch_assoc()) : ?>
-                  <div class="recipe-preview" value="<?php echo $row["recipe_id"]; ?>">
-                    <div class="img-wrapper">
-                      <img src="<?php echo $row["image_url"]; ?>" />
-                    </div>
-                    <div class="recipe-label"><?php echo $row["name"]; ?></div>
-                  </div>
-                <?php endwhile; ?>
-              </div>
-              <button class="scroll-button scroll-right"><i class="fas fa-chevron-right fa-2x"></i></button>
-            </div>  <!-- end of featured recipes -->
-        </div>
-      </div>
     </div> <!-- end of content -->
   </body>
   <?php require "components/footer.php"; ?>
   <script>
     bindScrollButtons('#featured-recipes');
-    bindScrollButtons('#popular-recipes');
 
     $('.recipe-preview').click(function() {
       location.href = 'recipe.php?recipe_id=' + $(this).attr('value');

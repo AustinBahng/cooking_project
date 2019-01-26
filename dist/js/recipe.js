@@ -124,9 +124,9 @@ $("#add-preparation-button").click(function() {
     let row = $('<tr class="preparation">');
     let cols = "";
     cols +=
-      '<td scope="row"><span>' +
+      '<td scope="row"><div>' +
       preparation +
-      '</span><i class="fas fa-times-circle"></i></td>';
+      '</div><i class="fas fa-times-circle"></i></td>';
     cols += "</tr>";
     row.append(cols);
     $("#edit-preparations tbody").append(row);

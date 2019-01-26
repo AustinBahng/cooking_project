@@ -271,7 +271,7 @@ h4 {
   display: none;
   z-index: 1;
   position: absolute;
-  top: 2px;
+  top: 0px;
   text-decoration: none;
   background-color: rgba(0, 0, 0, 0.2);
   border: none;
